@@ -1,0 +1,15 @@
+# Grab the latest alpine image
+FROM alpine:latest
+
+# Install python and pip
+RUN apk add --update python py-pip bash 
+
+# Add our code
+ADD . /opt/image-processing/
+WORKDIR /opt/image-processing
+
+# Expose is NOT supported by Heroku.  $PORT read from environment in app.py
+# EXPOSE 5000 		
+
+# Run the app.  CMD is required to run on Heroku			
+CMD ["python","image-processing.py"]
