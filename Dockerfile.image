@@ -5,7 +5,7 @@ FROM alpine:latest
 RUN apk add --update python py-pip bash 
 
 # Add our code
-ADD . /opt/image-processing/
+ADD ./image-processing /opt/image-processing/
 WORKDIR /opt/image-processing
 
 # Expose is NOT supported by Heroku.  $PORT read from environment in app.py
